@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public WiFi Registration</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    p {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .row .form-group {
+      flex: 1;
+    }
+
+    label {
+      font-size: 13px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 8px 5px;
+      outline: none;
+    }
+
+    input:focus {
+      border-bottom: 1px solid #7ec8e3;
+    }
+
+    .btn {
+      margin-top: 20px;
+      background: #7ec8e3;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <img src="Images/get-image.png" alt="Public WiFi" style="width:250px; margin-bottom:10px; margin-top:10px;">
+    <p>Register below to connect</p>
+
+    <form id="wifiForm">
+      <div class="row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="firstName" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lastName" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label>Company / Organization</label>
+        <input type="text" id="company">
+      </div>
+
+      <div class="form-group">
+        <label>Job Title / Position</label>
+        <input type="text" id="job">
+      </div>
+
+      <button type="submit" class="btn">Register</button>
+
+      <div class="checkbox">
+        <input type="checkbox" id="terms">
+        <label for="terms">Accept terms and conditions</label>
+      </div>
+
+      <div class="footer">
+        Powered by:
+      </div>
+      <img src="Images/burs logo.png" style="width:150px; margin-top:10px">
+    </form>
+  </div>
+
+  <script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbybxw1qvXqfTIulgQqdBoU2M0GV5DpLYEuiPqNP1V4QoPCB_9numLn1I7KJ7S5XVJ1h5g/exec";
+
+document.getElementById("wifiForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (!document.getElementById("terms").checked) {
+    alert("Please accept the terms and conditions.");
+    return;
+  }
+
+  const data = {
+    name: document.getElementById("firstName").value,
+    surname: document.getElementById("lastName").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    company: document.getElementById("company").value,
+    job: document.getElementById("job").value
+  };
+
+  console.log("Sending data:", data);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.text())
+  .then(response => {
+    console.log("Server response:", response);
+    alert("Registration successful!");
+    document.getElementById("wifiForm").reset();
+  })
+  .catch(error => {
+    console.error("FULL ERROR:", error);
+    alert("Submission failed. Check console.");
+  });
+});
+</script>
+</body>
+</html>s
