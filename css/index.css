@@ -102,3 +102,20 @@ input:focus {
   width: 150px;
   margin-top: 10px;
 }
+
+/* Wrapper for the [[!PoweredBy]] token the hotspot platform injects. The
+   markup it drops in is out of our control, so this only centres it. */
+
+.snippet {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}
+
+.snippet img,
+.snippet svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

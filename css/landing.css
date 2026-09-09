@@ -257,6 +257,34 @@ body {
 
 .contact__line a:hover { text-decoration: underline; }
 
+/* ------------------------------------------- Platform snippet tokens --- */
+
+/* Wrapper for [[!PoweredBy]] and any other token the hotspot platform
+   injects. The markup it drops in is out of our control, so this only
+   centres it and stops it overflowing. */
+
+.snippet {
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.snippet img,
+.snippet svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.snippet a { color: var(--text-muted); }
+
+/* If the injected badge is dark artwork and disappears against the navy
+   background, uncomment this to knock it out to white:
+
+.snippet--powered img { filter: brightness(0) invert(1); }
+*/
+
 /* ------------------------------------------------------------- Footer --- */
 
 .footer {
