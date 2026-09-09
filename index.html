@@ -5,103 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Public WiFi Registration</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      width: 350px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    p {
-      color: #555;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      text-align: left;
-      margin-bottom: 15px;
-    }
-
-    .row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .row .form-group {
-      flex: 1;
-    }
-
-    label {
-      font-size: 13px;
-      color: #333;
-    }
-
-    input {
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid #ccc;
-      padding: 8px 5px;
-      outline: none;
-    }
-
-    input:focus {
-      border-bottom: 1px solid #7ec8e3;
-    }
-
-    .btn {
-      margin-top: 20px;
-      background: #7ec8e3;
-      color: white;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 25px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    .checkbox {
-      display: flex;
-      align-items: center;
-      margin-top: 15px;
-      font-size: 13px;
-    }
-
-    .checkbox input {
-      width: auto;
-      margin-right: 10px;
-    }
-
-    .footer {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
 
   <div class="container">
-    <img src="get-image.png" alt="Public WiFi" style="width:250px; margin-bottom:10px; margin-top:10px;">
+    <img src="get-image.png" alt="Public WiFi" class="logo">
     <p>Register below to connect</p>
 
     <form id="wifiForm">
@@ -146,7 +56,7 @@
       <div class="footer">
         Powered by:
       </div>
-      <img src="burs logo.png" style="width:150px; margin-top:10px">
+      <img src="burs logo.png" alt="BURS" class="footer-logo">
     </form>
   </div>
 
