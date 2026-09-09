@@ -1,0 +1,332 @@
+/* ==========================================================================
+   UPICtv splash page - Purple custom HTML template
+   Paste this into the CSS tab of the Purple splash page editor.
+
+   No external fonts or CDNs on purpose: a splash page has to render before
+   the visitor has internet access, and anything not in the walled garden
+   will not load. Purple's own asset URLs are fine - that is what the
+   [[!ImageUrl]] snippet produces.
+   ========================================================================== */
+
+:root {
+  --navy:        #0a1e2b;
+  --navy-soft:   #102a3a;
+  --orange:      #f2784b;
+  --orange-dark: #ec6a3a;
+  --teal:        #2c8079;
+  --text:        #ffffff;
+  --text-muted:  #d7e2e9;
+  --rule:        #3c4f5c;
+  --rule-teal:   #2c7f78;
+
+  --font: "Century Gothic", "Futura", "Avenir Next", "Segoe UI", system-ui,
+          -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --page-width: 520px;
+  --gutter: 24px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--navy);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 32px;
+}
+
+/* --------------------------------------------------------- Powered by --- */
+
+.powered {
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* -------------------------------------------------------------- Brand --- */
+
+.brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 42px;
+}
+
+.brand__logo,
+.brand__img {
+  width: 78%;
+  max-width: 340px;
+  height: auto;
+}
+
+.brand__word {
+  fill: var(--text);
+  font-family: var(--font);
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.brand__play { fill: var(--navy); }
+
+.brand__badge { fill: var(--orange); }
+
+.brand__badge-text {
+  fill: var(--text);
+  font-family: var(--font);
+  font-size: 26px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+/* -------------------------------------------------------------- Promo --- */
+
+.promo {
+  position: relative;
+  aspect-ratio: 8 / 7;
+  border-radius: 4px;
+  overflow: hidden;
+  /* BANNER IMAGE: upload the photo in the template's image library, then
+     replace the url() below with the [[!ImageUrl]] snippet for it, copied
+     from the Snippets panel. A relative path such as assets/upic-banner.jpg
+     will NOT work here - the file does not exist on Purple's servers.
+     The gradient underneath is a fallback, so the block still reads as a
+     banner until the image is wired up. */
+  background-color: var(--navy-soft);
+  background-image:
+    linear-gradient(180deg, rgba(10, 30, 43, 0.15), rgba(10, 30, 43, 0.55)),
+    linear-gradient(135deg, #1d3a45 0%, #35525a 50%, #16303c 100%),
+    url("REPLACE-WITH-IMAGEURL-SNIPPET");
+  background-size: cover, cover, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.promo__overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 68%;
+  min-width: 240px;
+  padding: 20px 18px 22px;
+  background: rgba(28, 92, 90, 0.82);
+  color: var(--text);
+  text-align: left;
+}
+
+.promo__title {
+  margin: 0 0 10px;
+  font-size: clamp(19px, 5vw, 27px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.promo__copy {
+  margin: 0 0 16px;
+  font-size: clamp(11px, 2.6vw, 13px);
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.promo__copy strong { font-weight: 700; }
+
+.promo__cta {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 22px;
+  background: var(--orange);
+  color: var(--text);
+  font-size: clamp(11px, 3vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.promo__cta:hover,
+.promo__cta:focus-visible { background: var(--orange-dark); }
+
+/* ------------------------------------------------------- Free minutes --- */
+
+.btn-free {
+  display: block;
+  margin: 34px auto 46px;
+  max-width: 420px;
+  padding: 18px 24px;
+  border-radius: 40px;
+  background: var(--orange);
+  color: var(--text);
+  font-size: clamp(20px, 5.6vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.btn-free:hover,
+.btn-free:focus-visible {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+}
+
+.btn-free:active { transform: translateY(0); }
+
+/* ------------------------------------------------------------- Stores --- */
+
+.stores {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.store {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #000000;
+  text-decoration: none;
+}
+
+.store__icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  flex: none;
+}
+
+.store__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.store__text small { font-size: 9px; }
+
+.store__text strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------- Rules --- */
+
+.rule {
+  height: 0;
+  margin: 0 0 26px;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.rule--teal {
+  margin: 30px 0 22px;
+  border-top-color: var(--rule-teal);
+}
+
+/* ------------------------------------------------------------ Contact --- */
+
+.contact { padding: 0 6px; }
+
+.contact__title {
+  margin: 0 0 18px;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contact__line {
+  margin: 0 0 16px;
+  font-size: 17px;
+  color: var(--text-muted);
+}
+
+.contact__line:last-child { margin-bottom: 0; }
+
+.contact__line a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.contact__line a:hover { text-decoration: underline; }
+
+/* ------------------------------------------- Platform snippet tokens --- */
+
+/* Wrapper for [[!PoweredBy]] and any other snippet Purple renders into the
+   page. The markup it drops in is out of our control, so this only centres
+   it and stops it overflowing. */
+
+.snippet {
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.snippet img,
+.snippet svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.snippet a { color: var(--text-muted); }
+
+/* If the injected badge is dark artwork and disappears against the navy
+   background, uncomment this to knock it out to white:
+
+.snippet--powered img { filter: brightness(0) invert(1); }
+*/
+
+/* ------------------------------------------------------------- Footer --- */
+
+.footer {
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.footer a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+/* --------------------------------------------------------- Small phone -- */
+
+@media (max-width: 360px) {
+  .page { padding: 32px 18px 24px; }
+  .powered { font-size: 23px; }
+  .promo__overlay { width: 72%; padding: 16px 14px 18px; }
+  .contact__title { font-size: 26px; }
+  .contact__line { font-size: 15px; }
+}
+
+/* ------------------------------------------------- Focus / motion a11y -- */
+
+a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-free { transition: none; }
+  .btn-free:hover { transform: none; }
+}
