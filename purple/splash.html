@@ -46,12 +46,20 @@
     </section>
 
     <!-- Primary action.
-         THIS NEEDS THE AUTHENTICATION ATTRIBUTE SNIPPET. On its own this link
-         does nothing: the boilerplate JavaScript binds the connect action to
-         elements carrying Purple's authentication data attribute. Paste that
-         snippet from the Snippets panel into the tag below, in place of the
-         AUTH-SNIPPET-HERE marker, and drop the href. -->
-    <a class="btn-free" AUTH-SNIPPET-HERE>Free 30 Minutes</a>
+
+         PLACEHOLDER LINK - this does not connect anyone yet. The href below
+         is the Purple editor address, not an authentication endpoint, so
+         clicking it sends the guest to a Purple login page instead of onto
+         the WiFi. It is here so the markup is valid and the button renders.
+
+         TO MAKE IT WORK: open the Snippets panel on the HTML tab, click the
+         one-click authentication snippet, and replace this whole tag with:
+
+             <a class="btn-free" PASTE-THE-SNIPPET-HERE>Free 30 Minutes</a>
+
+         Keep class="btn-free" (that is the orange pill styling) and delete
+         the href - the snippet drives the connect action instead. -->
+    <a class="btn-free" href="https://eu.wifi.purple.ai/splashpage/custom-html/edit/66361">Free 30 Minutes</a>
 
     <!-- App stores -->
     <div class="stores">
